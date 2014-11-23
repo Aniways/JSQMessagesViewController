@@ -33,7 +33,7 @@
 
 #import "UIImage+JSQMessages.h"
 
-#import "#import "../../../Aniways/NSString+aniways.h"
+#import "../../../Aniways/NSString+aniways.h"
 
 
 const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
