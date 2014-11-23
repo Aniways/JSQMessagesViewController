@@ -18,7 +18,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "../../Pods/Aniways/Aniways.framework/Headers/AWTextView.h"
+#import "../../../Aniways/Aniways.framework/Headers/AWTextView.h"
 /**
  *  An instance of `JSQMessagesComposerTextView` is a subclass of `UITextView` that is styled and used 
  *  for composing messages in a `JSQMessagesViewController`. It is a subview of a `JSQMessagesToolbarContentView`.
