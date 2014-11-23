@@ -17,11 +17,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "../../Pods/Aniways/Aniways.framework/Headers/AWTextViewLabel.h"
 /**
  *  `JSQMessagesCellTextView` is a subclass of `UITextView` that is used to display text
  *  in a `JSQMessagesCollectionViewCell`.
  */
-@interface JSQMessagesCellTextView : UITextView
+@interface JSQMessagesCellTextView : AWTextViewLabel
 
 @end

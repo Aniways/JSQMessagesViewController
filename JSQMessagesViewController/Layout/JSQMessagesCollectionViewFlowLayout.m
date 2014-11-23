@@ -33,6 +33,8 @@
 
 #import "UIImage+JSQMessages.h"
 
+#import <Aniways/NSString+aniways.h>
+
 
 const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
 const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
@@ -455,6 +457,8 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
                                                           attributes:@{ NSFontAttributeName : self.messageBubbleFont }
                                                              context:nil];
         
+        stringRect.size = [[messageItem text] aniwaysSizeWithFont:self.messageBubbleFont constrainedToSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX)];
+
         CGSize stringSize = CGRectIntegral(stringRect).size;
         
         CGFloat verticalContainerInsets = self.messageBubbleTextViewTextContainerInsets.top + self.messageBubbleTextViewTextContainerInsets.bottom;
