@@ -1,13 +1,16 @@
 PODS:
+  - Aniways (2.4)
   - JSQSystemSoundPlayer (2.0.0)
   - OCMock (3.1.1)
 
 DEPENDENCIES:
+  - Aniways
   - JSQSystemSoundPlayer
   - OCMock
 
 SPEC CHECKSUMS:
+  Aniways: cd6dfd97bcec4e2f34eea63489b9a24f7de01116
   JSQSystemSoundPlayer: c98443b1cbb3b45db09d0d3d6c2355cf78294981
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0
