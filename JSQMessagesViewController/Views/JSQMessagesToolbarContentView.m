@@ -71,11 +71,11 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 - (IBAction)didPressIconOnDemand:(id)sender {
     AWIconOnDemandButton* button = (AWIconOnDemandButton*) sender;
     if(button.tag == 0){
-        [button setImage:[UIImage imageNamed:@"s_aniways_ebp_keyboard_button"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"AW_icon_keyboardbutton"] forState:UIControlStateNormal];
         button.tag = 1;
     }
     else{
-        [button setImage:[UIImage imageNamed:@"s_aniways_ebp_icons_button"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"AW_keyboard_iconbutton"] forState:UIControlStateNormal];
         button.tag = 0;
     }
 }

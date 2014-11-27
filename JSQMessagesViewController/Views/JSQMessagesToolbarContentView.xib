@@ -39,10 +39,10 @@
                         <constraint firstAttribute="height" constant="27" id="Ce5-FG-geV"/>
                         <constraint firstAttribute="width" constant="26" id="MXf-YW-45g"/>
                     </constraints>
-                    <state key="normal" image="s_aniways_ebp_keyboard_button">
+                    <state key="normal" image="AW_keyboard_iconbutton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="s_aniways_ebp_icons_button"/>
+                    <state key="selected" image="AW_keyboard_iconbutton.png"/>
                     <connections>
                         <action selector="didPressIconOnDemand:" destination="1" eventType="touchUpInside" id="rcY-jp-HSh"/>
                     </connections>
@@ -77,8 +77,7 @@
         </view>
     </objects>
     <resources>
-        <image name="s_aniways_ebp_icons_button" width="16" height="16"/>
-        <image name="s_aniways_ebp_keyboard_button" width="16" height="16"/>
+        <image name="AW_keyboard_iconbutton.png" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
