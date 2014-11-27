@@ -19,6 +19,7 @@
 #import "JSQMessagesToolbarContentView.h"
 
 #import "UIView+JSQMessages.h"
+#import "../../../Aniways/Aniways.framework/Headers/AWIconOnDemandButton.h"
 
 const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 
@@ -35,6 +36,8 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightHorizontalSpacingConstraint;
+
+@property (weak, nonatomic) IBOutlet AWIconOnDemandButton *aniwaysIconOnDemandButton;
 
 @end
 
@@ -58,10 +61,23 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    self.aniwaysIconOnDemandButton.textview = self.textView;
+    self.aniwaysIconOnDemandButton.enabled = YES;
     self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     
     self.backgroundColor = [UIColor clearColor];
+}
+- (IBAction)didPressIconOnDemand:(id)sender {
+    AWIconOnDemandButton* button = (AWIconOnDemandButton*) sender;
+    if(button.tag == 0){
+        [button setImage:[UIImage imageNamed:@"s_aniways_ebp_keyboard_button"] forState:UIControlStateNormal];
+        button.tag = 1;
+    }
+    else{
+        [button setImage:[UIImage imageNamed:@"s_aniways_ebp_icons_button"] forState:UIControlStateNormal];
+        button.tag = 0;
+    }
 }
 
 - (void)dealloc
