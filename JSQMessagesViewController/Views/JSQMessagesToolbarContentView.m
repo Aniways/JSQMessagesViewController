@@ -63,6 +63,8 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     
     self.aniwaysIconOnDemandButton.textview = self.textView;
     self.aniwaysIconOnDemandButton.enabled = YES;
+    [self.aniwaysIconOnDemandButton setImage:[UIImage imageNamed:@"AW_keyboard_iconbutton"] forState:UIControlStateNormal];
+    self.aniwaysIconOnDemandButton.tag = 0;
     self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     
