@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
 	s.requires_arc			= true
 
 	s.dependency 'JSQSystemSoundPlayer', '~> 2.0.0'
-    s.dependency 'Aniways', '~> 2'
+        s.dependency 'Aniways'
 end
