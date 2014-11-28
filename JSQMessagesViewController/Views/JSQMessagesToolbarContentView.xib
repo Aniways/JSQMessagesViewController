@@ -34,7 +34,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1e-1d-fxl" customClass="AWIconOnDemandButton">
-                    <rect key="frame" x="232" y="7" width="26" height="27"/>
+                    <rect key="frame" x="232" y="9" width="26" height="27"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="Ce5-FG-geV"/>
                         <constraint firstAttribute="width" constant="26" id="MXf-YW-45g"/>
@@ -52,9 +52,9 @@
                 <constraint firstItem="Myo-1S-Vg1" firstAttribute="leading" secondItem="y1e-1d-fxl" secondAttribute="trailing" constant="4" id="7LK-Qf-nPh"/>
                 <constraint firstItem="dm4-NT-mvr" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="9Tz-Wq-xIf"/>
                 <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" constant="7" id="CCb-V7-yek"/>
-                <constraint firstItem="y1e-1d-fxl" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="CaW-4i-teD"/>
                 <constraint firstAttribute="bottom" secondItem="Myo-1S-Vg1" secondAttribute="bottom" constant="6" id="EaS-Oq-Qp5"/>
                 <constraint firstItem="LEq-G7-jGt" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="8" id="LAU-fo-GJJ"/>
+                <constraint firstAttribute="centerY" secondItem="y1e-1d-fxl" secondAttribute="centerY" id="NSM-f8-pye"/>
                 <constraint firstItem="y1e-1d-fxl" firstAttribute="leading" secondItem="dm4-NT-mvr" secondAttribute="trailing" constant="4" id="aJM-Jf-K7w"/>
                 <constraint firstAttribute="trailing" secondItem="Myo-1S-Vg1" secondAttribute="trailing" constant="8" id="ds6-61-GNv"/>
                 <constraint firstAttribute="bottom" secondItem="LEq-G7-jGt" secondAttribute="bottom" constant="6" id="oG2-YD-ZZI"/>
