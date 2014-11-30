@@ -456,7 +456,7 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
                                                           attributes:@{ NSFontAttributeName : self.messageBubbleFont }
                                                              context:nil];
         
-        stringRect.size = [[messageItem text] aniwaysSizeWithFont:self.messageBubbleFont constrainedToSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX)];
+        stringRect.size = [[messageItem text] aniwaysSizeWithFont:self.messageBubbleFont constrainedToSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX) textLayoutChangedContext:indexPath];
 
         CGSize stringSize = CGRectIntegral(stringRect).size;
         

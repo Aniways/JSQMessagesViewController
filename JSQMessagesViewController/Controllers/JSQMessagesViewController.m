@@ -42,6 +42,8 @@
 #import "UIColor+JSQMessages.h"
 #import "UIDevice+JSQMessages.h"
 
+#import "../../../Aniways/Aniways.framework/Headers/AWConstants.h"
+
 
 static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObservingContext;
 
@@ -719,6 +721,13 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     self.selectedIndexPathForMenu = nil;
 }
 
+-(void)jsq_didReceiveAniwaysRowHieghtShouldChangeNotification:(NSNotification *)notification
+{
+    [self.collectionView reloadItemsAtIndexPaths:@[(NSIndexPath *)notification.userInfo[@"context"]]];
+    
+//    [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[JSQMessagesCollectionViewFlowLayoutInvalidationContext context]];
+}
+
 #pragma mark - Key-value observing
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -949,6 +958,11 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
                                                  selector:@selector(jsq_didReceiveMenuWillHideNotification:)
                                                      name:UIMenuControllerWillHideMenuNotification
                                                    object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(jsq_didReceiveAniwaysRowHieghtShouldChangeNotification:)
+                                                     name:AWReloadDataNotificationName
+                                                   object:nil];
     }
     else {
         [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -961,6 +975,10 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
         
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:UIMenuControllerWillHideMenuNotification
+                                                      object:nil];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:AWReloadDataNotificationName
                                                       object:nil];
     }
 }
