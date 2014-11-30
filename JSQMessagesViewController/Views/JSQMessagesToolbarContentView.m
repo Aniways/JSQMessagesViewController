@@ -26,6 +26,7 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 
 @interface JSQMessagesToolbarContentView ()
 
+@property (weak, nonatomic) IBOutlet UIView *textViewWrapper;
 @property (weak, nonatomic) IBOutlet JSQMessagesComposerTextView *textView;
 
 @property (weak, nonatomic) IBOutlet UIView *leftBarButtonContainerView;
@@ -60,6 +61,14 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     [super awakeFromNib];
     
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    CGFloat cornerRadius = 6.0f;
+    
+    self.textViewWrapper.backgroundColor = [UIColor whiteColor];
+    self.textViewWrapper.layer.borderWidth = 0.5f;
+    self.textViewWrapper.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.textViewWrapper.layer.cornerRadius = cornerRadius;
+
     
     self.aniwaysIconOnDemandButton.textview = self.textView;
     self.aniwaysIconOnDemandButton.enabled = YES;

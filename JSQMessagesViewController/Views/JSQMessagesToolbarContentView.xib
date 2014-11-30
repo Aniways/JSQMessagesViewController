@@ -27,38 +27,50 @@
                         <constraint firstAttribute="width" constant="50" id="yde-S9-dHe"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm4-NT-mvr" customClass="JSQMessagesComposerTextView">
-                    <rect key="frame" x="50" y="7" width="178" height="30"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1e-1d-fxl" customClass="AWIconOnDemandButton">
-                    <rect key="frame" x="232" y="9" width="26" height="27"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csf-6L-xCE" userLabel="TextView Wrapper">
+                    <rect key="frame" x="50" y="5" width="208" height="32"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm4-NT-mvr" customClass="JSQMessagesComposerTextView">
+                            <rect key="frame" x="0.0" y="0.0" width="178" height="32"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1e-1d-fxl" customClass="AWIconOnDemandButton">
+                            <rect key="frame" x="182" y="5" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="Ce5-FG-geV"/>
+                                <constraint firstAttribute="width" constant="22" id="MXf-YW-45g"/>
+                            </constraints>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didPressIconOnDemand:" destination="1" eventType="touchUpInside" id="rcY-jp-HSh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="27" id="Ce5-FG-geV"/>
-                        <constraint firstAttribute="width" constant="26" id="MXf-YW-45g"/>
+                        <constraint firstAttribute="trailing" secondItem="y1e-1d-fxl" secondAttribute="trailing" constant="4" id="1R9-4g-kRN"/>
+                        <constraint firstItem="y1e-1d-fxl" firstAttribute="top" secondItem="csf-6L-xCE" secondAttribute="top" constant="5" id="4gd-bF-qyr"/>
+                        <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" id="5fL-de-lRM"/>
+                        <constraint firstAttribute="height" constant="32" id="Asd-Ue-7RA"/>
+                        <constraint firstItem="y1e-1d-fxl" firstAttribute="leading" secondItem="dm4-NT-mvr" secondAttribute="trailing" constant="4" id="IVK-Yv-Bhg"/>
+                        <constraint firstItem="dm4-NT-mvr" firstAttribute="leading" secondItem="csf-6L-xCE" secondAttribute="leading" id="X0N-DI-Z4q"/>
+                        <constraint firstItem="dm4-NT-mvr" firstAttribute="top" secondItem="csf-6L-xCE" secondAttribute="top" id="tPL-Nl-6Ro"/>
                     </constraints>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="didPressIconOnDemand:" destination="1" eventType="touchUpInside" id="rcY-jp-HSh"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Myo-1S-Vg1" firstAttribute="leading" secondItem="y1e-1d-fxl" secondAttribute="trailing" constant="4" id="7LK-Qf-nPh"/>
-                <constraint firstItem="dm4-NT-mvr" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="9Tz-Wq-xIf"/>
-                <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" constant="7" id="CCb-V7-yek"/>
+                <constraint firstAttribute="bottom" secondItem="csf-6L-xCE" secondAttribute="bottom" constant="7" id="4uz-fE-3tH"/>
+                <constraint firstItem="csf-6L-xCE" firstAttribute="leading" secondItem="LEq-G7-jGt" secondAttribute="trailing" constant="8" id="9SS-5I-jRI"/>
                 <constraint firstAttribute="bottom" secondItem="Myo-1S-Vg1" secondAttribute="bottom" constant="6" id="EaS-Oq-Qp5"/>
                 <constraint firstItem="LEq-G7-jGt" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="8" id="LAU-fo-GJJ"/>
-                <constraint firstAttribute="centerY" secondItem="y1e-1d-fxl" secondAttribute="centerY" id="NSM-f8-pye"/>
-                <constraint firstItem="y1e-1d-fxl" firstAttribute="leading" secondItem="dm4-NT-mvr" secondAttribute="trailing" constant="4" id="aJM-Jf-K7w"/>
+                <constraint firstItem="Myo-1S-Vg1" firstAttribute="leading" secondItem="csf-6L-xCE" secondAttribute="trailing" constant="4" id="VrQ-B6-GOB"/>
                 <constraint firstAttribute="trailing" secondItem="Myo-1S-Vg1" secondAttribute="trailing" constant="8" id="ds6-61-GNv"/>
                 <constraint firstAttribute="bottom" secondItem="LEq-G7-jGt" secondAttribute="bottom" constant="6" id="oG2-YD-ZZI"/>
-                <constraint firstItem="dm4-NT-mvr" firstAttribute="leading" secondItem="LEq-G7-jGt" secondAttribute="trailing" constant="8" id="owo-gB-gyR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -71,6 +83,7 @@
                 <outlet property="rightBarButtonContainerViewWidthConstraint" destination="yde-S9-dHe" id="WGu-df-M3L"/>
                 <outlet property="rightHorizontalSpacingConstraint" destination="ds6-61-GNv" id="ZQh-8M-QFs"/>
                 <outlet property="textView" destination="dm4-NT-mvr" id="PFw-HO-oT8"/>
+                <outlet property="textViewWrapper" destination="csf-6L-xCE" id="3wT-bd-wqD"/>
             </connections>
             <point key="canvasLocation" x="268" y="548"/>
         </view>
