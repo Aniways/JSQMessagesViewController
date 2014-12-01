@@ -194,4 +194,11 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault;
  */
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
+/**
+ *  Removes the cach for specific indexPath
+ *
+ *  @param indexPath index path of message
+ */
+-(void)resetMessageBubbleCacheForIndexPath:(NSIndexPath *)indexPath;
+
 @end

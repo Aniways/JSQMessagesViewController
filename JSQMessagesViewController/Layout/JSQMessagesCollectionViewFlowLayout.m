@@ -602,4 +602,11 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
     }
 }
 
+-(void)resetMessageBubbleCacheForIndexPath:(NSIndexPath *)indexPath
+{
+    id<JSQMessageData> messageItem = [self.collectionView.dataSource collectionView:self.collectionView messageDataForItemAtIndexPath:indexPath];
+    [self.messageBubbleCache removeObjectForKey:@(messageItem.hash)];
+}
+
+
 @end
