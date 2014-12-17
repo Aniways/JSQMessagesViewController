@@ -726,7 +726,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     NSIndexPath *updatedIndexPath = notification.userInfo[@"context"];
     
     JSQMessagesCollectionViewFlowLayout *flowLayout = self.collectionView.collectionViewLayout;
-    [flowLayout resetMessageBubbleCacheForIndexPath:notification.object];
+    [flowLayout resetMessageBubbleCacheForIndexPath:updatedIndexPath];
 
     [self.collectionView reloadItemsAtIndexPaths:@[updatedIndexPath]];
 }
