@@ -724,11 +724,13 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 -(void)jsq_didReceiveAniwaysRowHieghtShouldChangeNotification:(NSNotification *)notification
 {
     NSIndexPath *updatedIndexPath = notification.userInfo[@"context"];
-    
-    JSQMessagesCollectionViewFlowLayout *flowLayout = self.collectionView.collectionViewLayout;
-    [flowLayout resetMessageBubbleCacheForIndexPath:updatedIndexPath];
-
-    [self.collectionView reloadItemsAtIndexPaths:@[updatedIndexPath]];
+    if (updatedIndexPath)
+    {
+        JSQMessagesCollectionViewFlowLayout *flowLayout = self.collectionView.collectionViewLayout;
+        [flowLayout resetMessageBubbleCacheForIndexPath:updatedIndexPath];
+        
+        [self.collectionView reloadItemsAtIndexPaths:@[updatedIndexPath]];
+    }
 }
 
 #pragma mark - Key-value observing
