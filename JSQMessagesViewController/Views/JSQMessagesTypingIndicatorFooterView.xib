@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -26,10 +27,10 @@
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Vwf-dy-PS6" secondAttribute="trailing" constant="260" id="1Tm-qD-wIK"/>
+                <constraint firstAttribute="right" secondItem="Vwf-dy-PS6" secondAttribute="right" constant="260" id="1Tm-qD-wIK"/>
                 <constraint firstAttribute="bottom" secondItem="Z1D-Tr-HPK" secondAttribute="bottom" constant="6" id="EVf-Sx-8mX"/>
                 <constraint firstAttribute="bottom" secondItem="Vwf-dy-PS6" secondAttribute="bottom" constant="6" id="Hik-Wl-aK2"/>
-                <constraint firstAttribute="trailing" secondItem="Z1D-Tr-HPK" secondAttribute="trailing" constant="246" id="YMl-ej-UZl"/>
+                <constraint firstAttribute="right" secondItem="Z1D-Tr-HPK" secondAttribute="right" constant="246" id="YMl-ej-UZl"/>
             </constraints>
             <connections>
                 <outlet property="bubbleImageView" destination="Z1D-Tr-HPK" id="WpE-rP-oYB"/>

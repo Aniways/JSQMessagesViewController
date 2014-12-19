@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
@@ -54,20 +55,19 @@
                         <constraint firstAttribute="trailing" secondItem="y1e-1d-fxl" secondAttribute="trailing" constant="4" id="1R9-4g-kRN"/>
                         <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" id="5fL-de-lRM"/>
                         <constraint firstAttribute="height" constant="32" id="Asd-Ue-7RA"/>
-                        <constraint firstItem="y1e-1d-fxl" firstAttribute="leading" secondItem="dm4-NT-mvr" secondAttribute="trailing" constant="4" id="IVK-Yv-Bhg"/>
-                        <constraint firstItem="dm4-NT-mvr" firstAttribute="leading" secondItem="csf-6L-xCE" secondAttribute="leading" id="X0N-DI-Z4q"/>
+                        <constraint firstItem="y1e-1d-fxl" firstAttribute="left" secondItem="dm4-NT-mvr" secondAttribute="right" constant="4" id="IVK-Yv-Bhg"/>
+                        <constraint firstItem="dm4-NT-mvr" firstAttribute="left" secondItem="csf-6L-xCE" secondAttribute="left" id="X0N-DI-Z4q"/>
                         <constraint firstAttribute="bottom" secondItem="y1e-1d-fxl" secondAttribute="bottom" constant="5" id="nDP-vE-Nzq"/>
                         <constraint firstItem="dm4-NT-mvr" firstAttribute="top" secondItem="csf-6L-xCE" secondAttribute="top" id="nUB-eY-QZe"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.64699016330000003" blue="0.2115031889" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="csf-6L-xCE" firstAttribute="leading" secondItem="LEq-G7-jGt" secondAttribute="trailing" constant="8" id="9SS-5I-jRI"/>
-                <constraint firstItem="LEq-G7-jGt" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="8" id="LAU-fo-GJJ"/>
+                <constraint firstItem="csf-6L-xCE" firstAttribute="left" secondItem="LEq-G7-jGt" secondAttribute="right" constant="8" id="9SS-5I-jRI"/>
+                <constraint firstItem="LEq-G7-jGt" firstAttribute="left" secondItem="1" secondAttribute="left" constant="8" id="LAU-fo-GJJ"/>
                 <constraint firstAttribute="bottom" secondItem="csf-6L-xCE" secondAttribute="bottom" constant="7" id="Qmt-uX-3IP"/>
-                <constraint firstItem="Myo-1S-Vg1" firstAttribute="leading" secondItem="csf-6L-xCE" secondAttribute="trailing" constant="4" id="VrQ-B6-GOB"/>
-                <constraint firstAttribute="trailing" secondItem="Myo-1S-Vg1" secondAttribute="trailing" constant="8" id="ds6-61-GNv"/>
+                <constraint firstItem="Myo-1S-Vg1" firstAttribute="left" secondItem="csf-6L-xCE" secondAttribute="right" constant="4" id="VrQ-B6-GOB"/>
+                <constraint firstAttribute="right" secondItem="Myo-1S-Vg1" secondAttribute="right" constant="8" id="ds6-61-GNv"/>
                 <constraint firstAttribute="bottom" secondItem="LEq-G7-jGt" secondAttribute="bottom" constant="6" id="ie4-Nf-4H5"/>
                 <constraint firstAttribute="bottom" secondItem="Myo-1S-Vg1" secondAttribute="bottom" constant="6" id="qun-kh-O8D"/>
                 <constraint firstItem="csf-6L-xCE" firstAttribute="top" secondItem="1" secondAttribute="top" constant="5" id="uMS-X1-Wjb"/>
