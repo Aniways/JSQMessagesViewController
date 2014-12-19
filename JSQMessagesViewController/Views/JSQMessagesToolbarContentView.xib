@@ -52,7 +52,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="y1e-1d-fxl" secondAttribute="trailing" constant="4" id="1R9-4g-kRN"/>
+                        <constraint firstAttribute="right" secondItem="y1e-1d-fxl" secondAttribute="right" constant="4" id="1R9-4g-kRN"/>
                         <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" id="5fL-de-lRM"/>
                         <constraint firstAttribute="height" constant="32" id="Asd-Ue-7RA"/>
                         <constraint firstItem="y1e-1d-fxl" firstAttribute="left" secondItem="dm4-NT-mvr" secondAttribute="right" constant="4" id="IVK-Yv-Bhg"/>
