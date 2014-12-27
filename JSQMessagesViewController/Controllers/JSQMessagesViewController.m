@@ -292,13 +292,6 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[JSQMessagesCollectionViewFlowLayoutInvalidationContext context]];
 }
 
-#pragma mark - UIResponder
-
-- (BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
-
 #pragma mark - Messages view controller
 
 - (void)didPressSendButton:(UIButton *)button
@@ -310,10 +303,18 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
 }
 
-- (void)didPressAccessoryButton:(UIButton *)sender { }
+- (void)didPressAccessoryButton:(UIButton *)sender
+{
+    NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
+}
 
 - (void)finishSendingMessage
 {
+    [self finishSendingMessageAnimated:YES];
+}
+
+- (void)finishSendingMessageAnimated:(BOOL)animated {
+    
     UITextView *textView = self.inputToolbar.contentView.textView;
     textView.text = nil;
     [textView.undoManager removeAllActions];
@@ -326,19 +327,24 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     [self.collectionView reloadData];
     
     if (self.automaticallyScrollsToMostRecentMessage) {
-        [self scrollToBottomAnimated:YES];
+        [self scrollToBottomAnimated:animated];
     }
 }
 
 - (void)finishReceivingMessage
 {
+    [self finishReceivingMessageAnimated:YES];
+}
+
+- (void)finishReceivingMessageAnimated:(BOOL)animated {
+    
     self.showTypingIndicator = NO;
     
     [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[JSQMessagesCollectionViewFlowLayoutInvalidationContext context]];
     [self.collectionView reloadData];
     
     if (self.automaticallyScrollsToMostRecentMessage && ![self jsq_isMenuVisible]) {
-        [self scrollToBottomAnimated:YES];
+        [self scrollToBottomAnimated:animated];
     }
 }
 
@@ -366,8 +372,19 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
         return;
     }
     
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:items - 1 inSection:0]
-                                atScrollPosition:UICollectionViewScrollPositionTop
+    //  workaround for really long messages not scrolling
+    //  if last message is too long, use scroll position bottom for better appearance, else use top
+    //  possibly a UIKit bug, see #480 on GitHub
+    NSUInteger finalRow = MAX(0, [self.collectionView numberOfItemsInSection:0] - 1);
+    NSIndexPath *finalIndexPath = [NSIndexPath indexPathForItem:finalRow inSection:0];
+    CGSize finalCellSize = [self.collectionView.collectionViewLayout sizeForItemAtIndexPath:finalIndexPath];
+    
+    CGFloat maxHeightForVisibleMessage = CGRectGetHeight(self.collectionView.bounds) - self.collectionView.contentInset.top - CGRectGetHeight(self.inputToolbar.bounds);
+    
+    UICollectionViewScrollPosition scrollPosition = (finalCellSize.height > maxHeightForVisibleMessage) ? UICollectionViewScrollPositionBottom : UICollectionViewScrollPositionTop;
+    
+    [self.collectionView scrollToItemAtIndexPath:finalIndexPath
+                                atScrollPosition:scrollPosition
                                         animated:animated];
 }
 
@@ -468,8 +485,16 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     if (needsAvatar) {
         avatarImageDataSource = [collectionView.dataSource collectionView:collectionView avatarImageDataForItemAtIndexPath:indexPath];
         if (avatarImageDataSource != nil) {
-            cell.avatarImageView.image = [avatarImageDataSource avatarImage] ?: [avatarImageDataSource avatarPlaceholderImage];
-            cell.avatarImageView.highlightedImage = [avatarImageDataSource avatarHighlightedImage];
+            
+            UIImage *avatarImage = [avatarImageDataSource avatarImage];
+            if (avatarImage == nil) {
+                cell.avatarImageView.image = [avatarImageDataSource avatarPlaceholderImage];
+                cell.avatarImageView.highlightedImage = nil;
+            }
+            else {
+                cell.avatarImageView.image = avatarImage;
+                cell.avatarImageView.highlightedImage = [avatarImageDataSource avatarHighlightedImage];
+            }
         }
     }
     
@@ -760,11 +785,25 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 
 - (void)keyboardController:(JSQMessagesKeyboardController *)keyboardController keyboardDidChangeFrame:(CGRect)keyboardFrame
 {
+    if (![self.inputToolbar.contentView.textView isFirstResponder] && self.toolbarBottomLayoutGuide.constant == 0.0f) {
+        return;
+    }
+    
     CGFloat heightFromBottom = CGRectGetMaxY(self.collectionView.frame) - CGRectGetMinY(keyboardFrame);
     
     heightFromBottom = MAX(0.0f, heightFromBottom);
     
     [self jsq_setToolbarBottomLayoutGuideConstant:heightFromBottom];
+}
+
+- (void)keyboardControllerKeyboardDidHide:(JSQMessagesKeyboardController *)keyboardController
+{
+    if (![self.inputToolbar.contentView.textView isFirstResponder]) {
+        return;
+    }
+    
+    [self jsq_setToolbarBottomLayoutGuideConstant:0.0f];
+    [self.inputToolbar.contentView.textView resignFirstResponder];
 }
 
 - (void)jsq_setToolbarBottomLayoutGuideConstant:(CGFloat)constant
