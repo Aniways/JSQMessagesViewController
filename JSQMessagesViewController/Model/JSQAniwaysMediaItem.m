@@ -63,8 +63,8 @@
         CGSize size = [self mediaViewDisplaySize];
         AWTextViewLabel *aniwaysLabel = [AWTextViewLabel new];
         aniwaysLabel.frame = CGRectMake(0.0f, 0.0f, size.width, size.height);
-//        aniwaysLabel.contentMode = UIViewContentModeScaleAspectFill;
         aniwaysLabel.clipsToBounds = YES;
+        aniwaysLabel.text = self.messageText;
         [JSQMessagesMediaViewBubbleImageMasker applyBubbleImageMaskToMediaView:aniwaysLabel isOutgoing:self.appliesMediaViewMaskAsOutgoing];
         self.cachedAniwaysLabel = aniwaysLabel;
     }
