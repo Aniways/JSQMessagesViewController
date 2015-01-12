@@ -10,6 +10,7 @@
 #import "JSQMessagesMediaViewBubbleImageMasker.h"
 
 #import "../../../Aniways/Aniways.framework/Headers/AWTextViewLabel.h"
+#import "../../../Aniways/Aniways.framework/Headers/NSString+aniways.h"
 
 @interface JSQAniwaysMediaItem ()
 
@@ -52,6 +53,17 @@
 }
 
 #pragma mark - JSQMessageMediaData protocol
+
+- (CGSize)mediaViewDisplaySize
+{
+    CGSize maxSize = [super mediaViewDisplaySize];
+    
+    CGSize mediaSize = [self.messageText aniwaysSizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:maxSize];
+    if (CGSizeEqualToSize(mediaSize, CGSizeZero))
+        return maxSize;
+    
+    return mediaSize;
+}
 
 - (UIView *)mediaView
 {
