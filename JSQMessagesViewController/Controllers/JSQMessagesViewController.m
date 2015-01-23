@@ -748,7 +748,7 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 
 -(void)jsq_didReceiveAniwaysRowHieghtShouldChangeNotification:(NSNotification *)notification
 {
-    NSIndexPath *updatedIndexPath = notification.userInfo[@"context"];
+    NSIndexPath *updatedIndexPath = notification.userInfo[AWReloadDataNotificationContextKey];
     if (updatedIndexPath)
     {
         JSQMessagesCollectionViewFlowLayout *flowLayout = self.collectionView.collectionViewLayout;

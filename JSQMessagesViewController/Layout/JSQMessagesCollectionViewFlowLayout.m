@@ -455,12 +455,18 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
         CGFloat horizontalInsetsTotal = horizontalContainerInsets + horizontalFrameInsets + spacingBetweenAvatarAndBubble;
         CGFloat maximumTextWidth = self.itemWidth - avatarSize.width - self.messageBubbleLeftRightMargin - horizontalInsetsTotal;
         
-        CGRect stringRect = [[messageItem text] boundingRectWithSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX)
+//        CGRect stringRect = [[messageItem text] boundingRectWithSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX)
+//                                                             options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+//                                                          attributes:@{ NSFontAttributeName : self.messageBubbleFont }
+//                                                             context:nil];
+
+        CGRect stringRect = [[messageItem text] aniwaysBoundingRectWithSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX)
                                                              options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                           attributes:@{ NSFontAttributeName : self.messageBubbleFont }
-                                                             context:nil];
-        
-        stringRect.size = [[messageItem text] aniwaysSizeWithFont:self.messageBubbleFont constrainedToSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX) textLayoutChangedContext:indexPath];
+                                                             context:nil
+                                                   textLayoutChangedContext:indexPath];
+
+//        stringRect.size = [[messageItem text] aniwaysSizeWithFont:self.messageBubbleFont constrainedToSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX) textLayoutChangedContext:indexPath];
 
         CGSize stringSize = CGRectIntegral(stringRect).size;
         
