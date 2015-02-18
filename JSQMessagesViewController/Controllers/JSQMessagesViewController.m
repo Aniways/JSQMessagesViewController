@@ -661,9 +661,15 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 - (NSString *)jsq_currentlyComposedMessageText
 {
     //  add a space to accept any auto-correct suggestions
-    NSString *text = self.inputToolbar.contentView.textView.text;
-    self.inputToolbar.contentView.textView.text = [text stringByAppendingString:@" "];
-    return [self.inputToolbar.contentView.textView.text jsq_stringByTrimingWhitespace];
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.inputToolbar.contentView.textView.attributedText];
+    [attributedText appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+    
+    self.inputToolbar.contentView.textView.attributedText = attributedText;
+    
+    [attributedText deleteCharactersInRange:NSMakeRange(attributedText.length - 1, 1)];
+    self.inputToolbar.contentView.textView.attributedText = attributedText;
+
+    return self.inputToolbar.contentView.textView.text;
 }
 
 #pragma mark - Text view delegate
