@@ -6,7 +6,7 @@ platform :ios, '7.0'
 inhibit_all_warnings!
 
 pod 'JSQSystemSoundPlayer'
-pod 'Aniways'
+pod 'Aniways', :git => 'https://github.com/Aniways/aniways-pod.git'
 
 target :JSQMessagesTests, :exclusive => true do
     pod 'OCMock'

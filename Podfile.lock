@@ -1,15 +1,24 @@
 PODS:
-  - Aniways (2.4.1.1)
+  - Aniways (2.5.0.3)
   - JSQSystemSoundPlayer (2.0.0)
   - OCMock (3.1.1)
 
 DEPENDENCIES:
-  - Aniways
+  - Aniways (from `https://github.com/Aniways/aniways-pod.git`)
   - JSQSystemSoundPlayer
   - OCMock
 
+EXTERNAL SOURCES:
+  Aniways:
+    :git: https://github.com/Aniways/aniways-pod.git
+
+CHECKOUT OPTIONS:
+  Aniways:
+    :commit: 92e0530bfc923982f5529b6c00dda2caa2400563
+    :git: https://github.com/Aniways/aniways-pod.git
+
 SPEC CHECKSUMS:
-  Aniways: 9f0915fd658875bfb612605eab43bbf38f374c39
+  Aniways: 4071c123a67ac0351f2aee3843a6b10fd72ccd43
   JSQSystemSoundPlayer: c98443b1cbb3b45db09d0d3d6c2355cf78294981
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
 
